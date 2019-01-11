@@ -1,5 +1,7 @@
 import java.rmi.registry.LocateRegistry; 
 import java.rmi.registry.Registry;
+import java.text.SimpleDateFormat;
+
 import java.util.*;  
 
 public class Client {  
@@ -22,6 +24,12 @@ public class Client {
         int min = calendar.get(Calendar.MINUTE);
         int sec = calendar.get(Calendar.SECOND);
         int msec = calendar.get(Calendar.MILLISECOND);
+        
+        // set the time to system time
+        SimpleDateFormat format = new SimpleDateFormat("MMddhhmm");
+        String strDateTimeToSet = format.format(calendar.getTime());
+        System.out.println("formatted time " + strDateTimeToSet);
+        // Runtime.getRuntime().exec("date -s " + strDateTimeToSet);
 
         System.out.println(hour + ":" + min + ":" + sec + ":" + msec);
     } 
@@ -30,6 +38,7 @@ public class Client {
         long timeInMillis = 0;
         try {  
             // Getting the registry 
+            // Registry registry = LocateRegistry.getRegistry("142.58.15.106", 5656); 
             Registry registry = LocateRegistry.getRegistry(null); 
 
             // Looking up the registry for the remote object 
