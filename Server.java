@@ -7,6 +7,8 @@ import java.util.*;
 public class Server extends ImplExample { 
    public Server() {} 
    public static void main(String args[]) { 
+      System.setProperty("java.rmi.server.hostname", "142.58.15.106");
+   
       try { 
          // Instantiating the implementation class 
          ImplExample obj = new ImplExample(); 
@@ -16,7 +18,9 @@ public class Server extends ImplExample {
          ImplInterface stub = (ImplInterface) UnicastRemoteObject.exportObject(obj, 0);  
          
          // Binding the remote object (stub) in the registry 
-         Registry registry = LocateRegistry.getRegistry(); 
+         // Registry registry = LocateRegistry.getRegistry();
+         Registry registry = LocateRegistry.createRegistry(5656);
+          
          
          registry.bind("Impl", stub);  
          System.out.println("Server ready"); 
