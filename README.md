@@ -1,39 +1,23 @@
 ## CMPT 431: Distributed Systems (Assignment 1, Spring 2019)
 
-### How to run
-
-1. `cd` to folder `remote-method-invocation`
-2. open 3 terminals
-
-In the 1st terminal type
+## How to run
+At the server side:
 ```Shell
-$ javac *.java
-$ rmiregistry # for linux or Mac
-# or use 
-# $ start rmiregistry 
-# for Windows
+javac *.java
+# linux
+rmiregistry
+# or windows
+start rmiregistry
+# get the server address and set the IP_ADRESS variable in Serevr.java
+java Server
 ```
 
-In the 2nd terminal type
-```Shell
-$ java Server
-```
-
-In the 3rd terminal type
-```Shell
-$ java Client
-```
-
-As expected, in `server` terminal,
+At the client side (windows OS only):
 ```shell
-Server unicasted current timestamp
-8:52:20:301 
-```
-
-in `client` terminal,
-```shell
-Server timestamp received.
-8:52:20:393
+javac *.java
+start rmiregistry
+# get the server address and set the IP_ADRESS variable in Client.java
+java Client
 ```
 
 ## Reference

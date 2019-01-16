@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Client {
-    private static final String IP_ADDRESS = "206.12.16.2";
+    private static final String IP_ADDRESS = "206.12.16.239";
     private static final int PORT = 5656;
 
     private Client() {
