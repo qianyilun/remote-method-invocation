@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Client {
-    private static final String IP_ADDRESS = "206.12.16.239";
+    private static final String IP_ADDRESS = "142.58.15.91";
     private static final int PORT = 5656;
 
     private Client() {
@@ -65,18 +65,21 @@ public class Client {
     }
 
     private void setWindowsTime(Date date) {
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("yy-MM-dd");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MM-dd-yy");
         SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
 
         String strDateToSet = dateFormatter.format(date);
         String strTimeToSet = timeFormatter.format(date);
+        System.out.print("Printing Commands");
+        System.out.println(strDateToSet);
+        System.out.println(strTimeToSet);
 
         try {
             // change the windows system time using native commands
 
             // Please note here we only set the time accurate to seconds, but while we are 
             // calculating the time, we used milliseconds
-            Runtime.getRuntime().exec("cmd /C date " + strDateToSet); // dd-MM-yy
+            Runtime.getRuntime().exec("cmd /C date " + strDateToSet); // MM-dd-yy
             Runtime.getRuntime().exec("cmd /C time " + strTimeToSet); // hh:mm:ss
         } catch (Exception e) {
             System.out.println("Failed to set the system time");
