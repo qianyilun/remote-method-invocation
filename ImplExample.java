@@ -13,13 +13,15 @@ public class ImplExample implements ImplInterface {
     public Date getServerTime() {
         Calendar cal = Calendar.getInstance();
         Date date = cal.getTime();
+
         System.out.println("Server unicasted current timestamp"); 
+
         int hour = cal.get(Calendar.HOUR);
         int min = cal.get(Calendar.MINUTE);
         int sec = cal.get(Calendar.SECOND);
         int msec = cal.get(Calendar.MILLISECOND);
 
-        System.out.println(hour + ":" + min + ":" + sec + ":" + msec);
+        System.out.println("Get sever time: " + hour + ":" + min + ":" + sec + ":" + msec);
         return date;
     }
  } 

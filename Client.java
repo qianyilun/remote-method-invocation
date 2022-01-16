@@ -72,11 +72,14 @@ public class Client {
         String strTimeToSet = timeFormatter.format(date);
 
         try {
-            // change the system time using native commands, for windows, date and time need
-            // to be set seperately
+            // change the windows system time using native commands
+
+            // Please note here we only set the time accurate to seconds, but while we are 
+            // calculating the time, we used milliseconds
             Runtime.getRuntime().exec("cmd /C date " + strDateToSet); // dd-MM-yy
             Runtime.getRuntime().exec("cmd /C time " + strTimeToSet); // hh:mm:ss
         } catch (Exception e) {
+            System.out.println("Failed to set the system time");
             e.printStackTrace();
         }
     }
